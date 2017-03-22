@@ -3,6 +3,9 @@ LABEL maintainer Jan-Petter Kruger <jan.petter.kruger@evry.com>
 
 ENV GOSU_VERSION 1.10
 RUN set -x \
+    && apk update \
+    && apk add ca-certificates wget \
+    && update-ca-certificates \
 	&& apk add --no-cache --virtual .gosu-deps \
 		dpkg \
 		gnupg \
